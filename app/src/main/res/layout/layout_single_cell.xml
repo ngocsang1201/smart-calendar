@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/calendarDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_regular"
+        android:text="1"
+        android:textColor="@color/colorText"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/eventsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-2dp"
+        android:fontFamily="@font/ubuntu_regular"
+        android:textColor="@color/colorAccent"
+        android:textSize="8sp" />
+
+</LinearLayout>

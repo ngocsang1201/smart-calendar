@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#292929</color>
+    <color name="colorAccent">#F06361</color>
+    <color name="colorAccentNote">#FDBE3B</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorText">#333333</color>
+    <color name="colorSearchBackground">#EEEEEE</color>
+    <color name="colorSearchIcon">#CDCDCD</color>
+    <color name="colorTextHint">#7B7B7B</color>
+    <color name="colorIcons">#A4A4A4</color>
+    <color name="colorTextSubtitle">#555555</color>
+    <color name="colorNoteSubtitleText">#FAFAFA</color>
+    <color name="colorMiscellaneousBackground">#F8F8F8</color>
+    <color name="colorDialogBackground">#F8F8F8</color>
+    <color name="colorDefaultNote">#FFCA28</color>
+    <color name="colorNote2">#EF5350</color>
+    <color name="colorNote3">#42A5F5</color>
+    <color name="colorNote4">#66BB6A</color>
+    <color name="colorNote5">#7E57C2</color>
+    <color name="colorDelete">#F44336</color>
+    <color name="colorTransparent">#00FFFFFF</color>
+    <color name="colorIconAccent">#888888</color>
+
+    <color name="green">#66BB6A</color>
+
+    <color name="colorHelp1">#B069C4</color>
+    <color name="colorHelp2">#FC5F35</color>
+    <color name="colorHelp3">#4686CF</color>
+    <color name="colorHelp4">#F7C843</color>
+    <color name="colorHelp5">#709C29</color>
+    <color name="colorHelp6">#C94643</color>
+
+    <color name="colorPinterest">#bd081c</color>
+    <color name="colorGoogle">#dd4b39</color>
+    <color name="colorQuora">#b92b27</color>
+    <color name="colorWeibo">#df2029</color>
+    <color name="colorInstagram">#e4405f</color>
+    <color name="colorDribbble">#ea4c89</color>
+    <color name="colorSoundCloud">#ff3300</color>
+    <color name="colorReddit">#ff5700</color>
+    <color name="colorBlogger">#f57d00</color>
+    <color name="colorFacebook">#3b5999</color>
+    <color name="colorLinkedIn">#0077B5</color>
+    <color name="colorTwitter">#55acee</color>
+    <color name="colorLine">#00c300</color>
+    <color name="colorWechat">#09b83e</color>
+    <color name="colorWhatsapp">#25D366</color>
+</resources>

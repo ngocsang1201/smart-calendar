@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutAbout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/_10sdp"
+    android:background="@drawable/background_dialog"
+    android:padding="@dimen/_20sdp">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:fontFamily="@font/ubuntu_regular"
+        android:gravity="center"
+        android:lineHeight="@dimen/_20sdp"
+        android:text="H3 (R) Smart Calendar\nVersion: 1.1.0\nCopyright (C) 2021 H3 Corp\n\nThis product is licensed to:\nVu Minh Khanh\nVu Nguyen Duc Manh\nNguyen Ngoc Sang\nLe Quoc Trung"
+        android:textColor="@color/colorText"
+        android:textSize="@dimen/_14sdp" />
+
+</RelativeLayout>

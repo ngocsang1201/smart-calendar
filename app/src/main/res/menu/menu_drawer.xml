@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawerHome"
+            android:checked="true"
+            android:icon="@drawable/ic_drawer_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/drawerNotifications"
+            android:icon="@drawable/ic_drawer_notification"
+            android:title="Notifications" />
+        <item
+            android:id="@+id/drawerSettings"
+            android:icon="@drawable/ic_drawer_settings"
+            android:title="Settings" />
+    </group>
+
+    <item
+        android:id="@+id/drawerLogOut"
+        android:icon="@drawable/ic_drawer_logout"
+        android:title="Log Out" />
+
+    <item android:title="Communicate">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/drawerHelp"
+                    android:icon="@drawable/ic_drawer_help"
+                    android:title="Help Center" />
+                <item
+                    android:id="@+id/drawerShare"
+                    android:icon="@drawable/ic_drawer_share"
+                    android:title="Social Share" />
+                <item
+                    android:id="@+id/drawerRate"
+                    android:icon="@drawable/ic_drawer_rate"
+                    android:title="Rate Us" />
+            </group>
+        </menu>
+    </item>
+
+</menu>

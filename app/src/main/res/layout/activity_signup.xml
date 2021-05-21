@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:padding="@dimen/_24sdp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/signUpLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:fontFamily="@font/bonjour"
+        android:text="@string/sign_up"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/_60ssp" />
+
+    <LinearLayout
+        android:id="@+id/signUpLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rectangle_border"
+            android:backgroundTint="@color/colorSearchBackground"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle_border"
+                android:backgroundTint="@color/colorAccent"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_user"
+                app:tint="@color/colorWhite" />
+
+            <EditText
+                android:id="@+id/name_in"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:background="@null"
+                android:fontFamily="@font/ubuntu_regular"
+                android:hint="@string/username"
+                android:inputType="text"
+                android:textColorHint="@color/colorTextHint"
+                android:textSize="@dimen/_13ssp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rectangle_border"
+            android:backgroundTint="@color/colorSearchBackground"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle_border"
+                android:backgroundTint="@color/colorAccent"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_password"
+                app:tint="@color/colorWhite" />
+
+            <EditText
+                android:id="@+id/pass_in"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:background="@null"
+                android:fontFamily="@font/ubuntu_regular"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/colorTextHint"
+                android:textSize="@dimen/_13ssp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rectangle_border"
+            android:backgroundTint="@color/colorSearchBackground"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle_border"
+                android:backgroundTint="@color/colorAccent"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_confirm"
+                app:tint="@color/colorWhite" />
+
+            <EditText
+                android:id="@+id/pass_con"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:background="@null"
+                android:fontFamily="@font/ubuntu_regular"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/colorTextHint"
+                android:textSize="@dimen/_13ssp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rectangle_border"
+            android:fontFamily="@font/ubuntu_medium"
+            android:text="@string/sign_up"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_15ssp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/have_an_account"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/sign_in"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_12ssp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
