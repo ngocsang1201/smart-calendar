@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCalendar">
-        <activity
-            android:name=".activities.MainActivity"
-            android:windowSoftInputMode="adjustPan">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +20,13 @@
 
         </activity>
         <activity android:name=".activities.SignUp" />
+        <activity android:name=".activities.Theme" />
         <activity android:name=".notes.activities.CreateNoteActivity" />
 
+        <receiver android:name=".alarm.AlarmReceiver" />
+        <service
+            android:name=".alarm.Music"
+            android:enabled="true" />
     </application>
 
 </manifest>

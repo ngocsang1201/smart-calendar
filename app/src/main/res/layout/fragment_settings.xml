@@ -1,13 +1,367 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/_12sdp"
+    android:background="#f4f4f4"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:background="@color/colorWhite"
+        android:paddingLeft="@dimen/_12sdp">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="Personal Details"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iconMail"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:src="@drawable/setting_mail"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title1"
+            app:tint="#FDBE3B" />
+
+        <TextView
+            android:id="@+id/nameMail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="name@domain.com"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iconMail"
+            app:layout_constraintLeft_toRightOf="@id/iconMail"
+            app:layout_constraintTop_toTopOf="@id/iconMail" />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginLeft="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="#ddd"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameMail" />
+
+        <ImageView
+            android:id="@+id/iconLock"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:src="@drawable/setting_lock"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line1"
+            app:tint="#C94643" />
+
+        <TextView
+            android:id="@+id/nameLock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="Change password"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iconLock"
+            app:layout_constraintLeft_toRightOf="@id/iconLock"
+            app:layout_constraintTop_toTopOf="@id/iconLock" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginLeft="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@color/colorWhite"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameLock" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@color/colorWhite"
+        android:paddingLeft="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="Settings"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iconTheme"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:src="@drawable/setting_brush"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title2"
+            app:tint="#709C29" />
+
+        <TextView
+            android:id="@+id/nameTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="Theme"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iconTheme"
+            app:layout_constraintLeft_toRightOf="@id/iconTheme"
+            app:layout_constraintTop_toTopOf="@id/iconTheme" />
+
+        <View
+            android:id="@+id/line3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginLeft="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="#ddd"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameTheme" />
+
+        <ImageView
+            android:id="@+id/iconNoti"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:src="@drawable/setting_noti"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line3"
+            app:tint="#F7C843" />
+
+        <TextView
+            android:id="@+id/nameNoti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="Notifications"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iconNoti"
+            app:layout_constraintLeft_toRightOf="@id/iconNoti"
+            app:layout_constraintTop_toTopOf="@id/iconNoti" />
+
+        <View
+            android:id="@+id/line4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginLeft="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="#ddd"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameNoti" />
+
+        <ImageView
+            android:id="@+id/iconFont"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:src="@drawable/setting_font"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line4"
+            app:tint="#4686CF" />
+
+        <TextView
+            android:id="@+id/nameFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="Language &amp; Font"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iconFont"
+            app:layout_constraintLeft_toRightOf="@id/iconFont"
+            app:layout_constraintTop_toTopOf="@id/iconFont" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginLeft="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@color/colorWhite"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameFont" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@color/colorWhite"
+        android:paddingLeft="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/title3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="Connected Account"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iconFb"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:src="@drawable/setting_facebook"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title3" />
+
+        <TextView
+            android:id="@+id/nameFb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="Facebook"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iconFb"
+            app:layout_constraintLeft_toRightOf="@id/iconFb"
+            app:layout_constraintTop_toTopOf="@id/iconFb" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchFb"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_24sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iconFb"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iconFb" />
+
+        <View
+            android:id="@+id/line6"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginLeft="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="#ddd"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameFb" />
+
+        <ImageView
+            android:id="@+id/iconInsta"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:src="@drawable/setting_instagram"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line6" />
+
+        <TextView
+            android:id="@+id/nameInsta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="Instagram"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iconInsta"
+            app:layout_constraintLeft_toRightOf="@id/iconInsta"
+            app:layout_constraintTop_toTopOf="@id/iconInsta" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchInsta"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_24sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iconInsta"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iconInsta" />
+
+        <View
+            android:id="@+id/line7"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginLeft="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="#ddd"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameInsta" />
+
+        <ImageView
+            android:id="@+id/iconTwit"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:src="@drawable/setting_twitter"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line7" />
+
+        <TextView
+            android:id="@+id/nameTwit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="Twitter"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iconTwit"
+            app:layout_constraintLeft_toRightOf="@id/iconTwit"
+            app:layout_constraintTop_toTopOf="@id/iconTwit" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchTwit"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_24sdp"
+            app:layout_constraintBottom_toBottomOf="@id/iconTwit"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iconTwit" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginLeft="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@color/colorWhite"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameTwit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
