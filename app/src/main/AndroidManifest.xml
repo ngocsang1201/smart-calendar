@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".activities.SignUp" />
         <activity android:name=".activities.Theme" />
+        <activity android:name=".activities.ChangePassword" />
         <activity android:name=".notes.activities.CreateNoteActivity" />
 
         <receiver android:name=".alarm.AlarmReceiver" />

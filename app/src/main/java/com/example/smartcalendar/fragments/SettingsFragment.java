@@ -15,6 +15,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.smartcalendar.R;
+import com.example.smartcalendar.activities.ChangePassword;
 import com.example.smartcalendar.activities.Theme;
 
 public class SettingsFragment extends Fragment {
@@ -43,7 +44,7 @@ public class SettingsFragment extends Fragment {
         nameLock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getActivity(), ChangePassword.class));
             }
         });
         nameTheme.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +61,7 @@ public class SettingsFragment extends Fragment {
             switchAccounts[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (isChecked){
+                    if (isChecked) {
                         Uri uri = Uri.parse(uriString[_i]);
                         startActivity(new Intent(Intent.ACTION_VIEW, uri));
                     }
