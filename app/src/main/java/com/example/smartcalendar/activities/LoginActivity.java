@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,15 +35,20 @@ public class LoginActivity extends AppCompatActivity {
     String UserSQL;
     String PassSQL;
 
+    TextView textWelcome;
+    ImageView imgLogo, imgFb, imgGoogle, imgTwitter;
+
+    float v = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signin);
+        setContentView(R.layout.activity_login);
 
         context = this;
 
         mapping();
-
+        animation();
         sql();
 
         sharedPreferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
@@ -92,14 +99,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        dangky.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                startActivity(new Intent(getApplicationContext(), SignupActivity.class));
-            }
-        });
-
         lost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,6 +106,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        ImageView[] socials = {imgFb, imgGoogle, imgTwitter};
+        String[] uriString = {"https://www.facebook.com", "https://accounts.google.com/servicelogin", "https://twitter.com/login"};
+        for (int i = 0; i < socials.length; i++) {
+            int _i = i;
+            socials[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Uri uri = Uri.parse(uriString[_i]);
+                    startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                }
+            });
+        }
     }
 
     private void sql() {
@@ -121,5 +132,36 @@ public class LoginActivity extends AppCompatActivity {
         password_in = findViewById(R.id.password);
         lost = findViewById(R.id.lost);
         remember = findViewById(R.id.remember);
+
+        textWelcome = findViewById(R.id.textWelcome);
+        imgLogo = findViewById(R.id.imgLogo);
+        imgFb = findViewById(R.id.imgFb);
+        imgGoogle = findViewById(R.id.imgGoogle);
+        imgTwitter = findViewById(R.id.imgTwitter);
+    }
+
+    private void animation() {
+        textWelcome.setTranslationX(-300);
+        imgLogo.setTranslationX(300);
+        imgFb.setTranslationY(400);
+        imgGoogle.setTranslationY(400);
+        imgTwitter.setTranslationY(400);
+
+        textWelcome.setAlpha(v);
+        imgLogo.setAlpha(v);
+        imgFb.setAlpha(v);
+        imgGoogle.setAlpha(v);
+        imgTwitter.setAlpha(v);
+
+        textWelcome.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(200).start();
+        imgLogo.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(200).start();
+        imgFb.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(800).start();
+        imgGoogle.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(600).start();
+        imgTwitter.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
+    }
+
+    public void onLoginClick(View View) {
+        startActivity(new Intent(this, RegisterActivity.class));
+        overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
     }
 }

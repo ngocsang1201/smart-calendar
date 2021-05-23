@@ -55,7 +55,7 @@ public class SettingsFragment extends Fragment {
         });
 
         SwitchCompat[] switchAccounts = {switchFb, switchGoogle, switchTwit};
-        String[] uriString = {"https://www.facebook.com/", "https://www.google.com/", "https://twitter.com/"};
+        String[] uriString = {"https://www.facebook.com", "https://www.google.com", "https://twitter.com"};
         for (int i = 0; i < switchAccounts.length; i++) {
             int _i = i;
             switchAccounts[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

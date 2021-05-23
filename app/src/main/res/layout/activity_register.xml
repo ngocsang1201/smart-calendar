@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/colorAccent"
+    android:focusableInTouchMode="true"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:padding="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/viewParent.headerText.NoMode"
+                android:text="Here’s\nyour first\nstep with \nus! "
+                android:textColor="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="@id/imgLogo2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imgLogo2" />
+
+            <ImageView
+                android:id="@+id/imgLogo2"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@drawable/bg_logo"
+                android:backgroundTint="@color/colorWhite"
+                android:padding="45dp"
+                android:src="@drawable/logo"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintTop_toBottomOf="@id/imgLogo2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputName"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+
+                        <EditText
+                            android:id="@+id/edittextName"
+                            style="@style/modifiedEditText"
+                            android:hint="Name"
+                            android:inputType="textPersonName"
+                            android:maxLines="1"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputEmail"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+
+                        <EditText
+                            android:id="@+id/editTextMail"
+                            style="@style/modifiedEditText"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputUsername2"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+
+                        <EditText
+                            android:id="@+id/name_in"
+                            style="@style/modifiedEditText"
+                            android:hint="Username"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputPassword2"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+
+                        <EditText
+                            android:id="@+id/pass_in"
+                            style="@style/modifiedEditText"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:maxLines="1"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/done"
+                        style="@style/loginButton"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        android:text="Register"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/viewParent"
+                            android:layout_marginRight="4dp"
+                            android:text="Have an account?"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorText"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/cancel"
+                            style="@style/viewParent"
+                            android:onClick="onLoginClick"
+                            android:text="Login"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <View
+        android:id="@+id/sideView"
+        android:layout_width="11dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_side_bg"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:adjustViewBounds="false"
+        android:onClick="onLoginClick"
+        android:src="@drawable/ic_back_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

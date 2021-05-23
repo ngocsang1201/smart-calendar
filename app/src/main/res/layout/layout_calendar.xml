@@ -62,7 +62,7 @@
             android:fontFamily="@font/ubuntu_medium"
             android:gravity="center"
             android:text="Sun"
-            android:textColor="@color/colorAccent"
+            android:textColor="#F06361"
             android:textSize="16sp" />
 
         <TextView
@@ -123,7 +123,7 @@
             android:fontFamily="@font/ubuntu_medium"
             android:gravity="center"
             android:text="Sat"
-            android:textColor="@color/colorAccent"
+            android:textColor="#F06361"
             android:textSize="16sp" />
     </LinearLayout>
 

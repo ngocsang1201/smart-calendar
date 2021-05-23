@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCalendar">
         <activity android:name=".activities.MainActivity">
+
+        </activity>
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LoginActivity">
-
-        </activity>
-        <activity android:name=".activities.SignupActivity" />
+        <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.ThemeActivity" />
         <activity android:name=".activities.ChangePasswordActivity" />
         <activity android:name=".notes.activities.CreateNoteActivity" />
@@ -28,6 +28,7 @@
         <service
             android:name=".alarm.Music"
             android:enabled="true" />
+
     </application>
 
 </manifest>
