@@ -1,4 +1,4 @@
-package com.example.smartcalendar.calendar;
+package com.example.smartcalendar.calendar.database;
 
 import android.content.ContentValues;
 import android.content.Context;

@@ -24,6 +24,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartcalendar.R;
+import com.example.smartcalendar.calendar.database.DBOpenHelper;
+import com.example.smartcalendar.calendar.database.DBStructure;
+import com.example.smartcalendar.calendar.recyclerview.EventRecyclerAdapter;
+import com.example.smartcalendar.calendar.recyclerview.Events;
+import com.example.smartcalendar.calendar.recyclerview.GridAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -167,7 +172,6 @@ public class CustomCalendarView extends LinearLayout {
                 return true;
             }
         });
-
     }
 
     private ArrayList<Events> CollectEventsByDate(String date) {

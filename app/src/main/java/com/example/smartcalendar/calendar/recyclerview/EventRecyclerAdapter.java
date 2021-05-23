@@ -1,4 +1,4 @@
-package com.example.smartcalendar.calendar;
+package com.example.smartcalendar.calendar.recyclerview;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartcalendar.R;
+import com.example.smartcalendar.calendar.database.DBOpenHelper;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.smartcalendar.calendar;
+package com.example.smartcalendar.calendar.recyclerview;
 
 public class Events {
 

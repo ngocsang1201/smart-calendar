@@ -10,12 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.smartcalendar.R;
-import com.example.smartcalendar.sql.SQLHelper;
 
-public class SignUp extends SignIn {
+public class SignupActivity extends LoginActivity {
 
     Context context;
     EditText name;
@@ -67,7 +64,7 @@ public class SignUp extends SignIn {
 
     private void goToSignIn(){
         finish();
-        startActivity(new Intent(getApplicationContext(), SignIn.class));
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
 
     private void mapping2() {

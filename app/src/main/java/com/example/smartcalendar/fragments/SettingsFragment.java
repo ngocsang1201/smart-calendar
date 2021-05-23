@@ -15,13 +15,13 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.smartcalendar.R;
-import com.example.smartcalendar.activities.ChangePassword;
-import com.example.smartcalendar.activities.Theme;
+import com.example.smartcalendar.activities.ChangePasswordActivity;
+import com.example.smartcalendar.activities.ThemeActivity;
 
 public class SettingsFragment extends Fragment {
 
     TextView nameMail, nameLock, nameTheme, nameNoti, nameFont;
-    SwitchCompat switchFb, switchInsta, switchTwit;
+    SwitchCompat switchFb, switchGoogle, switchTwit;
 
     @Nullable
     @Override
@@ -32,7 +32,7 @@ public class SettingsFragment extends Fragment {
         nameLock = view.findViewById(R.id.nameLock);
         nameTheme = view.findViewById(R.id.nameTheme);
         switchFb = view.findViewById(R.id.switchFb);
-        switchInsta = view.findViewById(R.id.switchInsta);
+        switchGoogle = view.findViewById(R.id.switchGoogle);
         switchTwit = view.findViewById(R.id.switchTwit);
 
         nameMail.setOnClickListener(new View.OnClickListener() {
@@ -44,18 +44,18 @@ public class SettingsFragment extends Fragment {
         nameLock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), ChangePassword.class));
+                startActivity(new Intent(getActivity(), ChangePasswordActivity.class));
             }
         });
         nameTheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), Theme.class));
+                startActivity(new Intent(getActivity(), ThemeActivity.class));
             }
         });
 
-        SwitchCompat[] switchAccounts = {switchFb, switchInsta, switchTwit};
-        String[] uriString = {"https://www.facebook.com/", "https://www.instagram.com/", "https://twitter.com/"};
+        SwitchCompat[] switchAccounts = {switchFb, switchGoogle, switchTwit};
+        String[] uriString = {"https://www.facebook.com/", "https://www.google.com/", "https://twitter.com/"};
         for (int i = 0; i < switchAccounts.length; i++) {
             int _i = i;
             switchAccounts[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

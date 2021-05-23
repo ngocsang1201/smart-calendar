@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.smartcalendar.R;
 import com.example.smartcalendar.sql.SQLHelper;
 
-public class SignIn extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     Context context;
     Button dangnhap;
@@ -96,7 +96,7 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                startActivity(new Intent(getApplicationContext(), SignUp.class));
+                startActivity(new Intent(getApplicationContext(), SignupActivity.class));
             }
         });
 

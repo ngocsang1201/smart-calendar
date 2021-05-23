@@ -1,5 +1,6 @@
 package com.example.smartcalendar.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -8,7 +9,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -70,19 +70,17 @@ public class HomeFragment extends Fragment {
 
     private void actionBottomNav() {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.BotNavCalendar:
-//                        getSupportActionBar().setTitle("My Calendar");
                         viewPager.setCurrentItem(0);
                         break;
                     case R.id.BotNavAlarm:
-//                        getSupportActionBar().setTitle("My Alarm");
                         viewPager.setCurrentItem(1);
                         break;
                     case R.id.BotNavNotes:
-//                        getSupportActionBar().setTitle("My Notes");
                         viewPager.setCurrentItem(2);
                         break;
                 }

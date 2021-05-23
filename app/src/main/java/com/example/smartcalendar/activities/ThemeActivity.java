@@ -10,7 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.smartcalendar.R;
 
-public class Theme extends AppCompatActivity {
+public class ThemeActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     RadioButton dayButton, nightButton;

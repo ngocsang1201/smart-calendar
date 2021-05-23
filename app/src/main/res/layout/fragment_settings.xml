@@ -285,17 +285,17 @@
             android:layout_height="@dimen/_24sdp"
             android:layout_marginLeft="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_12sdp"
-            android:src="@drawable/setting_instagram"
+            android:src="@drawable/setting_google"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/line6" />
 
         <TextView
-            android:id="@+id/nameInsta"
+            android:id="@+id/nameGoogle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_12sdp"
             android:fontFamily="@font/ubuntu_regular"
-            android:text="Instagram"
+            android:text="Google"
             android:textColor="@color/colorText"
             android:textSize="@dimen/_14sdp"
             app:layout_constraintBottom_toBottomOf="@id/iconInsta"
@@ -303,7 +303,7 @@
             app:layout_constraintTop_toTopOf="@id/iconInsta" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchInsta"
+            android:id="@+id/switchGoogle"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_24sdp"
@@ -319,7 +319,7 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:background="#ddd"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nameInsta" />
+            app:layout_constraintTop_toBottomOf="@id/nameGoogle" />
 
         <ImageView
             android:id="@+id/iconTwit"

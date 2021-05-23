@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.drawerLogOut:
                 finish();
-                startActivity(new Intent(getApplicationContext(), SignIn.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 break;
             case R.id.drawerHelp:
                 fragmentManager = getSupportFragmentManager();

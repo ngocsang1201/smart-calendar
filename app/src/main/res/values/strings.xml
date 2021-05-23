@@ -5,8 +5,8 @@
     <string name="settings">Settings</string>
     <string name="log_out">Log out</string>
     <string name="my_app">My app</string>
-    <string name="name">Nguyen Ngoc Sang</string>
-    <string name="mail">sangnn@hcmute.edu.vn</string>
+    <string name="name">This is my name</string>
+    <string name="mail">name@domain.com</string>
     <string name="open_drawer">Open drawer</string>
     <string name="close_drawer">Close drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
