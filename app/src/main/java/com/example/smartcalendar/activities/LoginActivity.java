@@ -155,9 +155,9 @@ public class LoginActivity extends AppCompatActivity {
 
         textWelcome.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(200).start();
         imgLogo.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(200).start();
-        imgFb.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(800).start();
-        imgGoogle.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(600).start();
-        imgTwitter.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(400).start();
+        imgFb.animate().translationY(0).alpha(1).setDuration(800).setStartDelay(800).start();
+        imgGoogle.animate().translationY(0).alpha(1).setDuration(800).setStartDelay(600).start();
+        imgTwitter.animate().translationY(0).alpha(1).setDuration(800).setStartDelay(400).start();
     }
 
     public void onLoginClick(View View) {

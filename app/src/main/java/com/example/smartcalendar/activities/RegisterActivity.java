@@ -76,6 +76,7 @@ public class RegisterActivity extends LoginActivity {
     }
 
     public void onLoginClick(View view){
+        finish();
         startActivity(new Intent(this, LoginActivity.class));
         overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
 
