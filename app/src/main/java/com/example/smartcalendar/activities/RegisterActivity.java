@@ -2,9 +2,12 @@ package com.example.smartcalendar.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -29,6 +32,7 @@ public class RegisterActivity extends LoginActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        changeStatusBarColor();
 
         context = this;
 
@@ -73,6 +77,15 @@ public class RegisterActivity extends LoginActivity {
 
         textView.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(200).start();
         imgLogo2.animate().translationX(0).alpha(1).setDuration(1000).setStartDelay(200).start();
+    }
+
+    private void changeStatusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.setStatusBarColor(Color.TRANSPARENT);
+            window.setStatusBarColor(getResources().getColor(R.color.colorAccent));
+        }
     }
 
     public void onLoginClick(View view){
