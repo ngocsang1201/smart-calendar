@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="@dimen/_12sdp"
@@ -260,14 +261,18 @@
             app:layout_constraintLeft_toRightOf="@id/iconFb"
             app:layout_constraintTop_toTopOf="@id/iconFb" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <Switch
             android:id="@+id/switchFb"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_20sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_24sdp"
+            android:padding="@dimen/_4sdp"
+            android:thumb="@drawable/ic_circle"
+            android:track="@drawable/switch_track"
             app:layout_constraintBottom_toBottomOf="@id/iconFb"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iconFb" />
+            app:layout_constraintTop_toTopOf="@id/iconFb"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <View
             android:id="@+id/line6"
@@ -302,14 +307,18 @@
             app:layout_constraintLeft_toRightOf="@id/iconInsta"
             app:layout_constraintTop_toTopOf="@id/iconInsta" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <Switch
             android:id="@+id/switchGoogle"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_20sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_24sdp"
+            android:padding="@dimen/_4sdp"
+            android:thumb="@drawable/ic_circle"
+            android:track="@drawable/switch_track"
             app:layout_constraintBottom_toBottomOf="@id/iconInsta"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iconInsta" />
+            app:layout_constraintTop_toTopOf="@id/iconInsta"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <View
             android:id="@+id/line7"
@@ -344,14 +353,18 @@
             app:layout_constraintLeft_toRightOf="@id/iconTwit"
             app:layout_constraintTop_toTopOf="@id/iconTwit" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchTwit"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_20sdp"
+        <Switch
+            android:id="@+id/switchTwitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_24sdp"
+            android:padding="@dimen/_4sdp"
+            android:thumb="@drawable/ic_circle"
+            android:track="@drawable/switch_track"
             app:layout_constraintBottom_toBottomOf="@id/iconTwit"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iconTwit" />
+            app:layout_constraintTop_toTopOf="@id/iconTwit"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <View
             android:layout_width="match_parent"

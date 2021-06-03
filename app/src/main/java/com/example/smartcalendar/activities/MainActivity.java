@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         actionToolbar();
         actionDrawer();
         setupFragment();
-
     }
 
     private void setupFragment() {

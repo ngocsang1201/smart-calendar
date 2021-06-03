@@ -63,7 +63,7 @@
                         <EditText
                             android:id="@+id/edittextName"
                             style="@style/modifiedEditText"
-                            android:hint="Name"
+                            android:hint="Full name"
                             android:inputType="textPersonName"
                             android:maxLines="1"
                             android:textSize="14sp" />

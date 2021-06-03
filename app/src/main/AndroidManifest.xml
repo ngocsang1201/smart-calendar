@@ -22,6 +22,7 @@
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.ThemeActivity" />
         <activity android:name=".activities.ChangePasswordActivity" />
+        <activity android:name=".activities.FontActivity" />
         <activity android:name=".notes.activities.CreateNoteActivity" />
 
         <receiver android:name=".alarm.AlarmReceiver" />
