@@ -54,6 +54,7 @@ public class SettingsFragment extends Fragment {
         switchGoogle.setChecked(sharedPreferences.getBoolean("google", false));
         switchTwitter.setChecked(sharedPreferences.getBoolean("twitter", false));
 
+        nameMail.setText(mainActivity.getMailSQL());
         String item1 = mainActivity.getUsername_send();
         String item2 = mainActivity.getPassword_send();
 

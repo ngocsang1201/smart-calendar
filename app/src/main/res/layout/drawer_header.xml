@@ -25,7 +25,7 @@
         android:text="@string/name"
         android:textAllCaps="true"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_18ssp" />
+        android:textSize="@dimen/_16ssp" />
 
     <TextView
         android:id="@+id/drawerMail"

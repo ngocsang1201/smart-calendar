@@ -43,8 +43,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FragmentTransaction fragmentTransaction;
     AlertDialog aboutDialog;
     TextView drawerName, drawerMail;
+
     SQLHelper sqlHelper;
     String item1_send, item2_send, username_send, password_send;
+    String NameSQL;
+    String MailSQL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String item2 = i.getStringExtra("key2");
         setItem1(item1);
         setItem2(item2);
-        String UserSQL, PassSQL, NameSQL = null, MailSQL = null;
+        String UserSQL, PassSQL;
 
         sqlHelper = new SQLHelper(this, "SQLite", null, 1);
         Cursor dataSQL = sqlHelper.GetData("SELECT * FROM AccountDataVer1");
@@ -89,17 +92,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void setItem2(String item2) {
         item2_send = item2;
     }
-
-    private String getItem2() {
+    private String getItem2(){
         return item2_send;
     }
-
     private void setItem1(String item1) {
         item1_send = item1;
     }
-
     private String getItem1() {
         return item1_send;
+    }
+    public String getMailSQL() {
+        return MailSQL;
     }
 
     private void setupFragment() {
