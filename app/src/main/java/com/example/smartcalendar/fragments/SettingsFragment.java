@@ -19,10 +19,13 @@ import androidx.fragment.app.Fragment;
 import com.example.smartcalendar.R;
 import com.example.smartcalendar.activities.ChangePasswordActivity;
 import com.example.smartcalendar.activities.FontActivity;
+import com.example.smartcalendar.activities.MainActivity;
 import com.example.smartcalendar.activities.ThemeActivity;
 
 @SuppressLint("UseSwitchCompatOrMaterialCode")
 public class SettingsFragment extends Fragment {
+
+    private MainActivity mainActivity;
 
     TextView nameMail, nameLock, nameTheme, nameNoti, nameFont;
     Switch switchFb, switchGoogle, switchTwitter;
@@ -42,6 +45,7 @@ public class SettingsFragment extends Fragment {
         switchFb = view.findViewById(R.id.switchFb);
         switchGoogle = view.findViewById(R.id.switchGoogle);
         switchTwitter = view.findViewById(R.id.switchTwitter);
+        mainActivity = (MainActivity) getActivity();
 
         sharedPreferences = getActivity().getSharedPreferences("facebook", 0);
         sharedPreferences = getActivity().getSharedPreferences("google", 0);
@@ -49,6 +53,9 @@ public class SettingsFragment extends Fragment {
         switchFb.setChecked(sharedPreferences.getBoolean("facebook", false));
         switchGoogle.setChecked(sharedPreferences.getBoolean("google", false));
         switchTwitter.setChecked(sharedPreferences.getBoolean("twitter", false));
+
+        String item1 = mainActivity.getUsername_send();
+        String item2 = mainActivity.getPassword_send();
 
         nameMail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +66,10 @@ public class SettingsFragment extends Fragment {
         nameLock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), ChangePasswordActivity.class));
+                Intent i = new Intent(getActivity(), ChangePasswordActivity.class);
+                i.putExtra("key3", item1);
+                i.putExtra("key4", item2);
+                startActivity(i);
             }
         });
         nameTheme.setOnClickListener(new View.OnClickListener() {

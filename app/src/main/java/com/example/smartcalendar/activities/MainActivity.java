@@ -2,6 +2,7 @@ package com.example.smartcalendar.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,6 +30,7 @@ import com.example.smartcalendar.fragments.NotificationsFragment;
 import com.example.smartcalendar.fragments.RatingFragment;
 import com.example.smartcalendar.fragments.SettingsFragment;
 import com.example.smartcalendar.fragments.ShareFragment;
+import com.example.smartcalendar.sql.SQLHelper;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,19 +42,64 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     AlertDialog aboutDialog;
+    TextView drawerName, drawerMail;
+    SQLHelper sqlHelper;
+    String item1_send, item2_send, username_send, password_send;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawerLayout);
         drawerNavigationView = findViewById(R.id.drawerNav);
+        View headerView = drawerNavigationView.getHeaderView(0);
+        drawerName = headerView.findViewById(R.id.drawerName);
+        drawerMail = headerView.findViewById(R.id.drawerMail);
+
+        Intent i = getIntent();
+        String item1 = i.getStringExtra("key1");
+        String item2 = i.getStringExtra("key2");
+        setItem1(item1);
+        setItem2(item2);
+        String UserSQL, PassSQL, NameSQL = null, MailSQL = null;
+
+        sqlHelper = new SQLHelper(this, "SQLite", null, 1);
+        Cursor dataSQL = sqlHelper.GetData("SELECT * FROM AccountDataVer1");
+        while (dataSQL.moveToNext()) {
+            UserSQL = dataSQL.getString(1);
+            PassSQL = dataSQL.getString(2);
+//                        int ID = dataSQL.getInt(0);
+            if (item1.equals(UserSQL) && item2.equals(PassSQL)) {
+                NameSQL = dataSQL.getString(3);
+                MailSQL = dataSQL.getString(4);
+            }
+        }
+        drawerName.setText(NameSQL);
+        drawerMail.setText(MailSQL);
 
         actionToolbar();
         actionDrawer();
         setupFragment();
+
+    }
+
+    private void setItem2(String item2) {
+        item2_send = item2;
+    }
+
+    private String getItem2() {
+        return item2_send;
+    }
+
+    private void setItem1(String item1) {
+        item1_send = item1;
+    }
+
+    private String getItem1() {
+        return item1_send;
     }
 
     private void setupFragment() {
@@ -116,6 +164,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportActionBar().setTitle("Notifications");
                 break;
             case R.id.drawerSettings:
+                sendDataToSettings();
                 fragmentManager = getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.container, new SettingsFragment());
@@ -152,6 +201,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         return true;
+    }
+
+    public String getUsername_send() {
+        return username_send;
+    }
+
+    public String getPassword_send() {
+        return password_send;
+    }
+
+    private void sendDataToSettings() {
+        username_send = getItem1();
+        password_send = getItem2();
     }
 
     @Override

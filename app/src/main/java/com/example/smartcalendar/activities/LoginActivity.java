@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(item1) || TextUtils.isEmpty(item2)) {
                     Toast.makeText(context, "Username or password is empty", Toast.LENGTH_SHORT).show();
                 } else {
-                    Cursor dataSQL = sqlHelper.GetData("SELECT * FROM AccountData");
+                    Cursor dataSQL = sqlHelper.GetData("SELECT * FROM AccountDataVer1");
                     while (dataSQL.moveToNext()) {
                         UserSQL = dataSQL.getString(1);
                         PassSQL = dataSQL.getString(2);
@@ -83,7 +83,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (flag) {
                         finish();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        i.putExtra("key1", item1);
+                        i.putExtra("key2", item2);
                         if (remember.isChecked()) {
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString("username_out", item1);
@@ -97,6 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.remove("checked");
                             editor.apply();
                         }
+                        startActivity(i);
                     } else {
                         Toast.makeText(context, "Username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
@@ -127,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void sql() {
         sqlHelper = new SQLHelper(this, "SQLite", null, 1);
-        sqlHelper.QueryData("CREATE TABLE IF NOT EXISTS AccountData(Id INTEGER PRIMARY KEY AUTOINCREMENT, UserName VARCHAR(200), Password VARCHAR(200))");
+        sqlHelper.QueryData("CREATE TABLE IF NOT EXISTS AccountDataVer1(Id INTEGER PRIMARY KEY AUTOINCREMENT, UserName VARCHAR(200), Password VARCHAR(200), FullName VARCHAR(200), UserMail VARCHAR(200))");
     }
 
     private void mapping() {

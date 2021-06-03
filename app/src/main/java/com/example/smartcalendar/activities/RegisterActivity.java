@@ -19,7 +19,7 @@ import com.example.smartcalendar.R;
 public class RegisterActivity extends LoginActivity {
 
     Context context;
-    EditText name,pass;
+    EditText username, pass, name, mail;
     Button done;
     TextView can;
 
@@ -42,16 +42,18 @@ public class RegisterActivity extends LoginActivity {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String item1 = name.getText().toString().trim();
+                String item1 = username.getText().toString().trim();
                 String item2 = pass.getText().toString().trim();
+                String item3 = name.getText().toString().trim();
+                String item4 = mail.getText().toString().trim();
 
-                if (TextUtils.isEmpty(item1) || TextUtils.isEmpty(item2)) {
+                if (TextUtils.isEmpty(item1) || TextUtils.isEmpty(item2) || TextUtils.isEmpty(item3) || TextUtils.isEmpty(item4)) {
                     Toast.makeText(context, "Please enter full information", Toast.LENGTH_SHORT).show();
                 }
                 if (item1.length() < 6 || item2.length() < 6) {
                     Toast.makeText(context, "At least 6 characters", Toast.LENGTH_SHORT).show();
                 } else {
-                    sqlHelper.QueryData("INSERT INTO AccountData VALUES (null, '" + item1 + "', '" + item2 + "')");
+                    sqlHelper.QueryData("INSERT INTO AccountDataVer1 VALUES (null, '" + item1 + "', '" + item2 + "', '" + item3 + "', '" + item4 + "')");
                     Toast.makeText(context, "Sign up success", Toast.LENGTH_SHORT).show();
                     can.performClick();
                 }
@@ -60,14 +62,17 @@ public class RegisterActivity extends LoginActivity {
     }
 
     private void mapping2() {
-        name = findViewById(R.id.name_in);
+        username = findViewById(R.id.name_in);
         pass = findViewById(R.id.pass_in);
         done = findViewById(R.id.done);
         can = findViewById(R.id.cancel);
+        name = findViewById(R.id.edittextName);
+        mail = findViewById(R.id.editTextMail);
 
         textView = findViewById(R.id.textView);
         imgLogo2 = findViewById(R.id.imgLogo2);
     }
+
     private void animation() {
         textView.setTranslationX(-300);
         imgLogo2.setTranslationX(300);
@@ -88,10 +93,10 @@ public class RegisterActivity extends LoginActivity {
         }
     }
 
-    public void onLoginClick(View view){
+    public void onLoginClick(View view) {
         finish();
         startActivity(new Intent(this, LoginActivity.class));
-        overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
+        overridePendingTransition(R.anim.slide_in_left, android.R.anim.slide_out_right);
 
     }
 }
