@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawerLayout);
         drawerNavigationView = findViewById(R.id.drawerNav);
+
         View headerView = drawerNavigationView.getHeaderView(0);
         drawerName = headerView.findViewById(R.id.drawerName);
         drawerMail = headerView.findViewById(R.id.drawerMail);
@@ -92,15 +92,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void setItem2(String item2) {
         item2_send = item2;
     }
-    private String getItem2(){
+
+    private String getItem2() {
         return item2_send;
     }
+
     private void setItem1(String item1) {
         item1_send = item1;
     }
+
     private String getItem1() {
         return item1_send;
     }
+
     public String getMailSQL() {
         return MailSQL;
     }

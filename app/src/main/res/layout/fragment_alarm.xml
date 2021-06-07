@@ -38,12 +38,40 @@
         android:id="@+id/textt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/settime"
+        android:layout_below="@+id/clockk"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:ems="10"
         android:gravity="center"
         android:textColor="@color/colorText"
         android:textSize="18dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/textt">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="false"
+            android:max="60"
+            android:progressDrawable="@drawable/custom_progressbar_drawable"
+            android:secondaryProgress="0" />
+
+        <TextView
+            android:id="@+id/taim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="12:55"
+            android:textColor="@color/colorText"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
