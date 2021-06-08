@@ -32,6 +32,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.smartcalendar.R;
+import com.example.smartcalendar.activities.MainActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -41,8 +42,7 @@ public class Alarm extends Fragment {
     ImageView hengio;
     Switch alarmSwitch, unavailable;
     RelativeLayout alarmLayout;
-    TextView hienthi, txtView;
-    TimePicker dongho;
+    TextView hienthi, txtView, alarmContent;
     Calendar calendar;
     AlarmManager alarmManager;
     PendingIntent pendingIntent;
@@ -50,13 +50,15 @@ public class Alarm extends Fragment {
     TextView txtProgress;
     ProgressBar progressBar;
 
-    int timeHour, timeMinute;
+    int updateHour, updateMinute;
+
+    private MainActivity mainActivity;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_alarm_copy, container, false);
+        View view = inflater.inflate(R.layout.fragment_alarm, container, false);
 
         txtProgress = view.findViewById(R.id.taim);
         progressBar = view.findViewById(R.id.progressBar);
@@ -68,50 +70,31 @@ public class Alarm extends Fragment {
         alarmLayout = view.findViewById(R.id.alarmLayout);
         hienthi = view.findViewById(R.id.textt);
         txtView = view.findViewById(R.id.txtView);
-//        dongho = view.findViewById(R.id.clockk);
+        alarmContent = view.findViewById(R.id.alarmContent);
         calendar = Calendar.getInstance();
+
+        mainActivity = (MainActivity) getActivity();
         alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
 
-//        dongho.setIs24HourView(true);
-
         Intent intent = new Intent(getActivity(), AlarmReceiver.class);
-
         createNotificationChannel();
-
-//        hengio.setOnClickListener(new View.OnClickListener() {
-//            @SuppressLint("SetTextI18n")
-//            @Override
-//            public void onClick(View v) {
-//                calendar.set(Calendar.HOUR_OF_DAY, dongho.getCurrentHour());
-//                calendar.set(Calendar.MINUTE, dongho.getCurrentMinute());
-//
-//                int gio = dongho.getCurrentHour();
-//                int phut = dongho.getCurrentMinute();
-//
-//                String string_gio = String.valueOf(gio > 9 ? gio : "0" + gio);
-//                String string_phut = String.valueOf(phut > 9 ? phut : "0" + phut);
-//
-//                intent.putExtra("extra", "on");
-//                pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//                alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-//                hienthi.setText(string_gio + ":" + string_phut);
-//                addNotification();
-//            }
-//        });
 
         hengio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(
-                        getActivity(),
+                        mainActivity,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         new TimePickerDialog.OnTimeSetListener() {
                             @SuppressLint("SimpleDateFormat")
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                timeHour = hourOfDay;
-                                timeMinute = minute;
-                                calendar.set(0, 0, 0, hourOfDay, minute);
+                                updateHour = hourOfDay;
+                                updateMinute = minute;
+                                calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                                calendar.set(Calendar.MINUTE, minute);
+                                calendar.set(Calendar.SECOND, 0);
+                                calendar.set(Calendar.MILLISECOND, 0);
                                 SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
                                 hienthi.setText(f24Hours.format(calendar.getTime()));
                                 alarmLayout.setVisibility(View.VISIBLE);
@@ -122,7 +105,7 @@ public class Alarm extends Fragment {
                         }, 0, 0, true
                 );
                 timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable((Color.TRANSPARENT)));
-                timePickerDialog.updateTime(timeHour, timeMinute);
+                timePickerDialog.updateTime(updateHour, updateMinute);
                 timePickerDialog.show();
             }
         });
@@ -132,18 +115,6 @@ public class Alarm extends Fragment {
                 hengio.performClick();
             }
         });
-
-//        huybo.setOnClickListener(new View.OnClickListener() {
-//            @SuppressLint("SetTextI18n")
-//            @Override
-//            public void onClick(View v) {
-//                hienthi.setText("Đã dừng");
-//                alarmManager.cancel(pendingIntent);
-//                intent.putExtra("extra", "off");
-//                getActivity().sendBroadcast(intent);
-//            }
-//        });
-
         alarmSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -180,7 +151,7 @@ public class Alarm extends Fragment {
 
         Intent intent = new Intent(getActivity(), AlarmReceiver.class);
         intent.putExtra("extra", "on");
-        pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        pendingIntent = PendingIntent.getBroadcast(mainActivity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
         addNotification();
     }
@@ -207,14 +178,20 @@ public class Alarm extends Fragment {
     }
 
     private void addNotification() {
-        String strTitle = "Smart Calendar";
-        String strMsg = hienthi.getText().toString().trim();
+        String strTitle = "Alarm";
+        String strMsg = hienthi.getText().toString().trim() + " " + alarmContent.getText().toString().trim();
         Intent notificationIntent = new Intent(getActivity(), NotificationDetailActivity.class);
         notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         notificationIntent.putExtra("message", strMsg);
         notificationIntent.putExtra("title", strTitle);
         PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "Channel-001").setSmallIcon(R.drawable.ic_alarm).setContentTitle(strTitle).setContentText(strMsg).setPriority(NotificationCompat.PRIORITY_HIGH).setContentIntent(pendingIntent).setAutoCancel(true);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), "Channel-001")
+                .setSmallIcon(R.drawable.logo)
+                .setContentTitle(strTitle)
+                .setContentText(strMsg)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
         NotificationManager manager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(0, builder.build());
     }

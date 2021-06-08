@@ -50,14 +50,20 @@ public class Music extends Service {
     }
 
     private void addNotification() {
-        String strTitle = "Smart Calendar";
-        String strMsg = "It's time!!!";
+        String strTitle = "Alarm";
+        String strMsg = "Do exercises now";
         Intent notificationIntent = new Intent(this, NotificationDetailActivity.class);
         notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         notificationIntent.putExtra("message", strMsg);
         notificationIntent.putExtra("title", strTitle);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "Channel-001").setSmallIcon(R.drawable.ic_alarm).setContentTitle(strTitle).setContentText(strMsg).setPriority(NotificationCompat.PRIORITY_HIGH).setContentIntent(pendingIntent).setAutoCancel(true);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "Channel-001")
+                .setSmallIcon(R.drawable.logo)
+                .setContentTitle(strTitle)
+                .setContentText(strMsg)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(0, builder.build());
     }

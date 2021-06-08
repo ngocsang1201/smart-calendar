@@ -1,77 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TimePicker
-        android:id="@+id/clockk"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_alignParentTop="true"
-        android:background="@color/colorWhite" />
-
-    <Button
-        android:id="@+id/settime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/clockk"
-        android:layout_marginLeft="20dp"
-        android:text="Hẹn giờ"
-        android:textAllCaps="false"
-        android:textColor="@color/colorText"
-        app:backgroundTint="#DFDFDF" />
-
-    <Button
-        android:id="@+id/btncancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/clockk"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:text="Hủy bỏ"
-        android:textAllCaps="false"
-        android:textColor="@color/colorText"
-        app:backgroundTint="#DFDFDF" />
-
-    <TextView
-        android:id="@+id/textt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/clockk"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:textColor="@color/colorText"
-        android:textSize="18dp" />
-
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/progressLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/textt">
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="12dp"
+        android:gravity="center">
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/circle_shape"
             android:indeterminate="false"
-            android:max="60"
-            android:progressDrawable="@drawable/custom_progressbar_drawable"
-            android:secondaryProgress="0" />
+            android:max="59"
+            android:progressDrawable="@drawable/circle_progress_bar"
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/taim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="@font/ubuntu_regular"
             android:text="12:55"
             android:textColor="@color/colorText"
-            android:textSize="20sp" />
+            android:textSize="30sp" />
 
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/settime"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/circle"
+        android:elevation="4dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_add"
+        app:tint="@color/colorIconAccent" />
+
+    <TextView
+        android:id="@+id/txtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progressLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ubuntu_medium"
+        android:text="No alarms on"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="22sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtView"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/alarmLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="12:00"
+                android:textColor="@color/colorText"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/alarmContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textt"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="Do exercises"
+                android:textColor="@color/colorTextHint"
+                android:textSize="16dp" />
+
+
+            <TextView
+                android:id="@+id/txtV2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textt"
+                android:layout_toRightOf="@id/alarmContent"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text=", Only ring once"
+                android:textColor="@color/colorTextHint"
+                android:textSize="16dp" />
+
+            <Switch
+                android:id="@+id/alarmSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="4dp"
+                android:thumb="@drawable/ic_circle"
+                android:track="@drawable/switch_track"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/txtV2"
+                android:layout_marginTop="10dp"
+                android:background="#ddd" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/t1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="06:59"
+                android:textColor="@color/colorText"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/t2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/t1"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="Wake up, Every day"
+                android:textColor="@color/colorTextHint"
+                android:textSize="16dp" />
+
+            <Switch
+                android:id="@+id/switchUnavailable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="4dp"
+                android:thumb="@drawable/ic_circle"
+                android:track="@drawable/switch_track"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/t2"
+                android:layout_marginTop="10dp"
+                android:background="#ddd" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

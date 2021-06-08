@@ -19,6 +19,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_16sdp"
         android:background="@drawable/rectangle_radius"
         android:paddingVertical="@dimen/_16sdp"
         android:paddingLeft="@dimen/_20sdp"
@@ -106,209 +107,220 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:fontFamily="@font/ubuntu_bold"
-        android:text="Rate"
-        android:textColor="@color/colorText"
-        android:textSize="@dimen/_14sdp" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/rate1"
-            android:layout_width="@dimen/_36sdp"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_marginRight="@dimen/_16sdp"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle_radius"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/_18ssp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/rate2"
-            android:layout_width="@dimen/_36sdp"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_marginRight="@dimen/_16sdp"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle_radius"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:text="2"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/_18ssp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="Rate"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/_14sdp" />
 
-        <TextView
-            android:id="@+id/rate3"
-            android:layout_width="@dimen/_36sdp"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_marginRight="@dimen/_16sdp"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle_radius"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:text="3"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/_18ssp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/rate4"
-            android:layout_width="@dimen/_36sdp"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_marginRight="@dimen/_16sdp"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle_radius"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:text="4"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/_18ssp" />
+                <TextView
+                    android:id="@+id/rate1"
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_marginRight="@dimen/_16sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_radius"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/_18ssp" />
 
-        <TextView
-            android:id="@+id/rate5"
-            android:layout_width="@dimen/_36sdp"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle_radius"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:text="5"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/_18ssp" />
+                <TextView
+                    android:id="@+id/rate2"
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_marginRight="@dimen/_16sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_radius"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/_18ssp" />
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/rate3"
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_marginRight="@dimen/_16sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_radius"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/_18ssp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp">
+                <TextView
+                    android:id="@+id/rate4"
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_marginRight="@dimen/_16sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_radius"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/_18ssp" />
 
-        <TextView
-            android:id="@+id/rateGood"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_36sdp"
-            android:background="@drawable/rectangle_radius"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_28sdp"
-            android:text="Good"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/_14ssp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/rate5"
+                    android:layout_width="@dimen/_36sdp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangle_radius"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/_18ssp" />
 
-        <TextView
-            android:id="@+id/rateEnjoy"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_36sdp"
-            android:background="@drawable/rectangle_radius"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_28sdp"
-            android:text="Enjoy"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/_14ssp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/rateBad"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_marginHorizontal="@dimen/_12sdp"
-            android:background="@drawable/rectangle_radius"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_28sdp"
-            android:text="Bad"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/_14ssp"
-            app:layout_constraintLeft_toRightOf="@+id/rateEnjoy"
-            app:layout_constraintRight_toLeftOf="@id/rateGood"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp">
 
-        <TextView
-            android:id="@+id/rateVeryGood"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:background="@drawable/rectangle_radius"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_28sdp"
-            android:text="Very Good"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/_14ssp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rateEnjoy" />
+                <TextView
+                    android:id="@+id/rateGood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_36sdp"
+                    android:background="@drawable/rectangle_radius"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_28sdp"
+                    android:text="Good"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/rateNotBad"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_marginLeft="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:background="@drawable/rectangle_radius"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_28sdp"
-            android:text="Not Bad"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/_14ssp"
-            app:layout_constraintLeft_toRightOf="@id/rateVeryGood"
-            app:layout_constraintTop_toBottomOf="@id/rateEnjoy" />
+                <TextView
+                    android:id="@+id/rateEnjoy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_36sdp"
+                    android:background="@drawable/rectangle_radius"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_28sdp"
+                    android:text="Enjoy"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/rateExcellent"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:background="@drawable/rectangle_radius"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_36sdp"
-            android:text="Excellent"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/_14ssp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rateVeryGood" />
+                <TextView
+                    android:id="@+id/rateBad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:background="@drawable/rectangle_radius"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_28sdp"
+                    android:text="Bad"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintLeft_toRightOf="@+id/rateEnjoy"
+                    app:layout_constraintRight_toLeftOf="@id/rateGood"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/rateVeryGood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@drawable/rectangle_radius"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_28sdp"
+                    android:text="Very Good"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rateEnjoy" />
 
-    <EditText
-        android:id="@+id/comment"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_32sdp"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:fontFamily="@font/ubuntu_regular"
-        android:hint="Comment"
-        android:textColor="@color/colorText"
-        android:textColorHint="@color/colorTextHint"
-        android:textSize="@dimen/_14ssp" />
+                <TextView
+                    android:id="@+id/rateNotBad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:background="@drawable/rectangle_radius"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_28sdp"
+                    android:text="Not Bad"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintLeft_toRightOf="@id/rateVeryGood"
+                    app:layout_constraintTop_toBottomOf="@id/rateEnjoy" />
 
-    <Button
-        android:id="@+id/rateButton"
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:background="@drawable/rectangle_border"
-        android:fontFamily="@font/ubuntu_bold"
-        android:text="Done"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_14ssp" />
+                <TextView
+                    android:id="@+id/rateExcellent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@drawable/rectangle_radius"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_36sdp"
+                    android:text="Excellent"
+                    android:textColor="@color/colorText"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rateVeryGood" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <EditText
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/ubuntu_regular"
+                android:hint="Comment"
+                android:textColor="@color/colorText"
+                android:textColorHint="@color/colorTextHint"
+                android:textSize="@dimen/_14ssp" />
+
+            <Button
+                android:id="@+id/rateButton"
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/rectangle_border"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="Done"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_14ssp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

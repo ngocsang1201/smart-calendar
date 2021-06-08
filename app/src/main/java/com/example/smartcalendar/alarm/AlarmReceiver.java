@@ -9,9 +9,9 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d("Receiver", "Done");
+        Log.e("Receiver", "Done");
         String chuoi = intent.getExtras().getString("extra");
-        Log.d("Receiver", "Key: " + chuoi);
+        Log.e("Receiver", "Key: " + chuoi);
 
         Intent myIntent = new Intent(context, Music.class);
         myIntent.putExtra("extra", chuoi);
