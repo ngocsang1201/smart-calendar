@@ -37,13 +37,14 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Events events = eventsArrayList.get(position);
-        holder.date.setText(events.getDATE());
         holder.name.setText(events.getEVENT());
+        holder.location.setText(events.getLOCATION());
+        holder.date.setText(events.getDATE());
         holder.time.setText(events.getTIME());
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteCalendarEvent(events.getEVENT(), events.getDATE(), events.getTIME());
+                deleteCalendarEvent(events.getEVENT(), events.getLOCATION(), events.getDATE(), events.getTIME());
                 eventsArrayList.remove(position);
                 notifyDataSetChanged();
             }
@@ -57,23 +58,24 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView date, name, time;
+        TextView date, name, time, location;
         ImageView delete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            date = itemView.findViewById(R.id.eventDateRow);
             name = itemView.findViewById(R.id.eventNameRow);
+            date = itemView.findViewById(R.id.eventDateRow);
+            location = itemView.findViewById(R.id.eventLocationRow);
             time = itemView.findViewById(R.id.eventTimeRow);
             delete = itemView.findViewById(R.id.delete);
         }
     }
 
-    private void deleteCalendarEvent(String event, String date, String time) {
+    private void deleteCalendarEvent(String event, String location, String date, String time) {
         dbOpenHelper = new DBOpenHelper(context);
         SQLiteDatabase database = dbOpenHelper.getWritableDatabase();
-        dbOpenHelper.DeleteEvent(event, date, time, database);
+        dbOpenHelper.DeleteEvent(event, location, date, time, database);
         dbOpenHelper.close();
     }
 }

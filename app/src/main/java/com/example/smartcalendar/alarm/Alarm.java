@@ -111,8 +111,8 @@ public class Alarm extends Fragment {
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 timeHour = hourOfDay;
                                 timeMinute = minute;
-                                SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
                                 calendar.set(0, 0, 0, hourOfDay, minute);
+                                SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
                                 hienthi.setText(f24Hours.format(calendar.getTime()));
                                 alarmLayout.setVisibility(View.VISIBLE);
                                 alarmSwitch.setChecked(true);
@@ -124,6 +124,12 @@ public class Alarm extends Fragment {
                 timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable((Color.TRANSPARENT)));
                 timePickerDialog.updateTime(timeHour, timeMinute);
                 timePickerDialog.show();
+            }
+        });
+        hienthi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hengio.performClick();
             }
         });
 

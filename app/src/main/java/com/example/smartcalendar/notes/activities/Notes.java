@@ -1,4 +1,4 @@
-package com.example.smartcalendar.notes;
+package com.example.smartcalendar.notes.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.smartcalendar.R;
-import com.example.smartcalendar.notes.activities.CreateNoteActivity;
 import com.example.smartcalendar.notes.adapters.NotesAdapter;
 import com.example.smartcalendar.notes.database.NotesDatabase;
 import com.example.smartcalendar.notes.entities.Note;

@@ -2,10 +2,11 @@ package com.example.smartcalendar.calendar.recyclerview;
 
 public class Events {
 
-    String EVENT, TIME, DATE, MONTH, YEAR;
+    String EVENT, LOCATION, TIME, DATE, MONTH, YEAR;
 
-    public Events(String EVENT, String TIME, String DATE, String MONTH, String YEAR) {
+    public Events(String EVENT, String LOCATION, String TIME, String DATE, String MONTH, String YEAR) {
         this.EVENT = EVENT;
+        this.LOCATION = LOCATION;
         this.TIME = TIME;
         this.DATE = DATE;
         this.MONTH = MONTH;
@@ -18,6 +19,14 @@ public class Events {
 
     public void setEVENT(String EVENT) {
         this.EVENT = EVENT;
+    }
+
+    public String getLOCATION() {
+        return LOCATION;
+    }
+
+    public void setLOCATION(String LOCATION) {
+        this.LOCATION = LOCATION;
     }
 
     public String getTIME() {

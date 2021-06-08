@@ -68,10 +68,10 @@ public class GridAdapter extends ArrayAdapter {
 
         if (displayMonth == currentMonth && displayYear == currentYear) {
             dayNumber.setTextColor(Color.parseColor("#333333"));
-//            if (dayNo == currentDay ) {
+//            if (dayNo == currentDay) {
 //                dayNumber.setTextColor(Color.parseColor("#FFFFFF"));
 //                eventNumber.setTextColor(Color.parseColor("#FFFFFF"));
-//                convertView.setBackgroundResource(R.drawable.circle_calender);
+//                convertView.setBackgroundResource(R.drawable.bg_current_date);
 //            }
         } else {
             dayNumber.setTextColor(Color.parseColor("#CCCCCC"));
@@ -92,7 +92,7 @@ public class GridAdapter extends ArrayAdapter {
     }
 
     private Date ConvertStringToDate(String eventDate) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         Date date = null;
         try {
             date = format.parse(eventDate);

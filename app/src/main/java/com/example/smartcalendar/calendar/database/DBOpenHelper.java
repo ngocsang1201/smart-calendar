@@ -13,6 +13,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     private static final String CREATE_EVENTS_TABLE = "CREATE TABLE "
             + DBStructure.EVENTS_TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
             + DBStructure.EVENT + " TEXT, "
+            + DBStructure.LOCATION + " LOCATION, "
             + DBStructure.TIME + " TEXT, "
             + DBStructure.DATE + " TEXT, "
             + DBStructure.MONTH + " TEXT, "
@@ -35,10 +36,11 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void SaveEvent(String event, String time, String date, String month, String year, SQLiteDatabase database) {
+    public void SaveEvent(String event, String location, String time, String date, String month, String year, SQLiteDatabase database) {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(DBStructure.EVENT, event);
+        contentValues.put(DBStructure.LOCATION, location);
         contentValues.put(DBStructure.TIME, time);
         contentValues.put(DBStructure.DATE, date);
         contentValues.put(DBStructure.MONTH, month);
@@ -47,7 +49,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     }
 
     public Cursor ReadEvents(String date, SQLiteDatabase database) {
-        String[] Projections = {DBStructure.EVENT, DBStructure.TIME, DBStructure.DATE, DBStructure.MONTH, DBStructure.YEAR};
+        String[] Projections = {DBStructure.EVENT, DBStructure.LOCATION, DBStructure.TIME, DBStructure.DATE, DBStructure.MONTH, DBStructure.YEAR};
         String Selection = DBStructure.DATE + "=?";
         String[] SelectionArgs = {date};
 
@@ -55,16 +57,16 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     }
 
     public Cursor ReadEventsPerMonth(String month, String year, SQLiteDatabase database) {
-        String[] Projections = {DBStructure.EVENT, DBStructure.TIME, DBStructure.DATE, DBStructure.MONTH, DBStructure.YEAR};
+        String[] Projections = {DBStructure.EVENT, DBStructure.LOCATION, DBStructure.TIME, DBStructure.DATE, DBStructure.MONTH, DBStructure.YEAR};
         String Selection = DBStructure.MONTH + "=? and " + DBStructure.YEAR + "=?";
         String[] SelectionArgs = {month, year};
 
         return database.query(DBStructure.EVENTS_TABLE_NAME, Projections, Selection, SelectionArgs, null, null, null);
     }
 
-    public void DeleteEvent(String event, String date, String time, SQLiteDatabase database) {
-        String selection = DBStructure.EVENT + "=? and " + DBStructure.DATE + "=? and " + DBStructure.TIME + "=?";
-        String[] selectionArg = {event, date, time};
+    public void DeleteEvent(String event, String location, String date, String time, SQLiteDatabase database) {
+        String selection = DBStructure.EVENT + "=? and " + DBStructure.LOCATION + "=? and " + DBStructure.DATE + "=? and " + DBStructure.TIME + "=?";
+        String[] selectionArg = {event, location, date, time};
         database.delete(DBStructure.EVENTS_TABLE_NAME, selection, selectionArg);
     }
 }

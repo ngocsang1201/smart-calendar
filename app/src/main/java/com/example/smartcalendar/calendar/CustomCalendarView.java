@@ -51,7 +51,7 @@ public class CustomCalendarView extends LinearLayout {
     SimpleDateFormat dateFormat = new SimpleDateFormat("MMM yyyy", Locale.ENGLISH);
     SimpleDateFormat monthFormat = new SimpleDateFormat("MM", Locale.getDefault());
     SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy", Locale.getDefault());
-    SimpleDateFormat eventDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+    SimpleDateFormat eventDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
 
     GridAdapter gridAdapter;
     AlertDialog alertDialog;
@@ -93,17 +93,19 @@ public class CustomCalendarView extends LinearLayout {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setCancelable(true);
                 View addView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_add_event, null);
-                EditText eventName = addView.findViewById(R.id.eventInput);
+                EditText eventName = addView.findViewById(R.id.eventTitle);
+                EditText eventLocation = addView.findViewById(R.id.eventLocation);
                 TextView eventTime = addView.findViewById(R.id.eventTime);
-                ImageButton setTimeButton = addView.findViewById(R.id.setEventTime);
+                LinearLayout eventTimeLayout = addView.findViewById(R.id.eventTimeLayout);
                 Button addEventButton = addView.findViewById(R.id.addEventButton);
-                setTimeButton.setOnClickListener(new OnClickListener() {
+                eventTimeLayout.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Calendar calendar = Calendar.getInstance();
                         int hour = calendar.get(Calendar.HOUR_OF_DAY);
                         int minute = calendar.get(Calendar.MINUTE);
-                        TimePickerDialog timePickerDialog = new TimePickerDialog(addView.getContext(), R.style.Theme_AppCompat_Dialog,
+                        TimePickerDialog timePickerDialog = new TimePickerDialog(
+                                addView.getContext(),
                                 new TimePickerDialog.OnTimeSetListener() {
                                     @Override
                                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -111,11 +113,11 @@ public class CustomCalendarView extends LinearLayout {
                                         c.set(Calendar.HOUR_OF_DAY, hourOfDay);
                                         c.set(Calendar.MINUTE, minute);
                                         c.setTimeZone(TimeZone.getDefault());
-                                        SimpleDateFormat hformat = new SimpleDateFormat("K:mm a", Locale.getDefault());
+                                        SimpleDateFormat hformat = new SimpleDateFormat("HH:mm", Locale.getDefault());
                                         String EventTime = hformat.format(c.getTime());
                                         eventTime.setText(EventTime);
                                     }
-                                }, hour, minute, false);
+                                }, hour, minute, true);
                         timePickerDialog.show();
                     }
                 });
@@ -127,9 +129,15 @@ public class CustomCalendarView extends LinearLayout {
                 addEventButton.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        SaveEvent(eventName.getText().toString(), eventTime.getText().toString(), date, month, year);
-                        SetupCalendar();
-                        alertDialog.dismiss();
+                        String name = eventName.getText().toString();
+                        String location = eventLocation.getText().toString();
+                        String time = eventTime.getText().toString();
+
+                        if (!name.isEmpty() && !location.isEmpty() && !time.isEmpty()) {
+                            SaveEvent(name, location, time, date, month, year);
+                            SetupCalendar();
+                            alertDialog.dismiss();
+                        }
                     }
                 });
 
@@ -181,11 +189,12 @@ public class CustomCalendarView extends LinearLayout {
         Cursor cursor = dbOpenHelper.ReadEvents(date, database);
         while (cursor.moveToNext()) {
             String Event = cursor.getString(cursor.getColumnIndex(DBStructure.EVENT));
+            String Location = cursor.getString(cursor.getColumnIndex(DBStructure.LOCATION));
             String Time = cursor.getString(cursor.getColumnIndex(DBStructure.TIME));
             String Date = cursor.getString(cursor.getColumnIndex(DBStructure.DATE));
             String Month = cursor.getString(cursor.getColumnIndex(DBStructure.MONTH));
             String Year = cursor.getString(cursor.getColumnIndex(DBStructure.YEAR));
-            Events Events = new Events(Event, Time, Date, Month, Year);
+            Events Events = new Events(Event, Location, Time, Date, Month, Year);
             arrayList.add(Events);
         }
         cursor.close();
@@ -198,10 +207,10 @@ public class CustomCalendarView extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    private void SaveEvent(String event, String time, String date, String month, String year) {
+    private void SaveEvent(String event, String location, String time, String date, String month, String year) {
         dbOpenHelper = new DBOpenHelper(context);
         SQLiteDatabase database = dbOpenHelper.getWritableDatabase();
-        dbOpenHelper.SaveEvent(event, time, date, month, year, database);
+        dbOpenHelper.SaveEvent(event, location, time, date, month, year, database);
         Toast.makeText(context, "Event Saved", Toast.LENGTH_SHORT).show();
 
     }
@@ -243,11 +252,12 @@ public class CustomCalendarView extends LinearLayout {
         Cursor cursor = dbOpenHelper.ReadEventsPerMonth(month, year, database);
         while (cursor.moveToNext()) {
             String Event = cursor.getString(cursor.getColumnIndex(DBStructure.EVENT));
+            String Location = cursor.getString(cursor.getColumnIndex(DBStructure.LOCATION));
             String Time = cursor.getString(cursor.getColumnIndex(DBStructure.TIME));
             String Date = cursor.getString(cursor.getColumnIndex(DBStructure.DATE));
             String Month = cursor.getString(cursor.getColumnIndex(DBStructure.MONTH));
             String Year = cursor.getString(cursor.getColumnIndex(DBStructure.YEAR));
-            Events Events = new Events(Event, Time, Date, Month, Year);
+            Events Events = new Events(Event, Location, Time, Date, Month, Year);
             eventsList.add(Events);
         }
         cursor.close();

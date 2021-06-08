@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.smartcalendar.alarm.Alarm;
 import com.example.smartcalendar.calendar.Calendar;
-import com.example.smartcalendar.notes.Notes;
+import com.example.smartcalendar.notes.activities.Notes;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 

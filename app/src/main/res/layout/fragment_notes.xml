@@ -62,7 +62,7 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_marginRight="@dimen/_30sdp"
         android:layout_marginBottom="@dimen/_30sdp"
-        android:background="@drawable/background_add_button"
+        android:background="@drawable/bg_add_button"
         android:contentDescription="@string/app_name"
         android:elevation="@dimen/_4sdp"
         android:padding="@dimen/_5sdp"

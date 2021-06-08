@@ -50,7 +50,7 @@ public class ThemeActivity extends AppCompatActivity {
                     editor.commit();
                     nightButton.setChecked(false);
                     finish();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 }
             }
         });
@@ -65,7 +65,7 @@ public class ThemeActivity extends AppCompatActivity {
                     editor.commit();
                     dayButton.setChecked(false);
                     finish();
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 }
             }
         });
