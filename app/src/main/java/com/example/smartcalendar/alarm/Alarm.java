@@ -53,6 +53,7 @@ public class Alarm extends Fragment {
     int updateHour, updateMinute;
 
     private MainActivity mainActivity;
+    TimePickerDialog timePickerDialog;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Nullable
@@ -62,8 +63,6 @@ public class Alarm extends Fragment {
 
         txtProgress = view.findViewById(R.id.taim);
         progressBar = view.findViewById(R.id.progressBar);
-        actionProgressBar();
-
         hengio = view.findViewById(R.id.settime);
         alarmSwitch = view.findViewById(R.id.alarmSwitch);
         unavailable = view.findViewById(R.id.switchUnavailable);
@@ -77,35 +76,14 @@ public class Alarm extends Fragment {
         alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
 
         Intent intent = new Intent(getActivity(), AlarmReceiver.class);
+
+        timePickerInit();
+        actionProgressBar();
         createNotificationChannel();
 
         hengio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TimePickerDialog timePickerDialog = new TimePickerDialog(
-                        mainActivity,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @SuppressLint("SimpleDateFormat")
-                            @Override
-                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                                updateHour = hourOfDay;
-                                updateMinute = minute;
-                                calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
-                                calendar.set(Calendar.MINUTE, minute);
-                                calendar.set(Calendar.SECOND, 0);
-                                calendar.set(Calendar.MILLISECOND, 0);
-                                SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
-                                hienthi.setText(f24Hours.format(calendar.getTime()));
-                                alarmLayout.setVisibility(View.VISIBLE);
-                                alarmSwitch.setChecked(true);
-
-                                setAlarm();
-                            }
-                        }, 0, 0, true
-                );
-                timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable((Color.TRANSPARENT)));
-                timePickerDialog.updateTime(updateHour, updateMinute);
                 timePickerDialog.show();
             }
         });
@@ -144,6 +122,36 @@ public class Alarm extends Fragment {
             }
         });
         return view;
+    }
+
+    private void timePickerInit() {
+        Calendar c = Calendar.getInstance();
+        int currentHour = c.get(Calendar.HOUR_OF_DAY);
+        int currentMinute = c.get(Calendar.MINUTE);
+        timePickerDialog = new TimePickerDialog(
+                mainActivity,
+                android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                new TimePickerDialog.OnTimeSetListener() {
+                    @SuppressLint("SimpleDateFormat")
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        updateHour = hourOfDay;
+                        updateMinute = minute;
+                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        calendar.set(Calendar.MINUTE, minute);
+                        calendar.set(Calendar.SECOND, 0);
+                        calendar.set(Calendar.MILLISECOND, 0);
+                        SimpleDateFormat f24Hours = new SimpleDateFormat("HH:mm");
+                        hienthi.setText(f24Hours.format(calendar.getTime()));
+                        alarmLayout.setVisibility(View.VISIBLE);
+                        alarmSwitch.setChecked(true);
+
+                        setAlarm();
+                    }
+                }, currentHour, currentMinute, true
+        );
+        timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable((Color.TRANSPARENT)));
+        timePickerDialog.updateTime(currentHour, currentMinute);
     }
 
     private void setAlarm() {
